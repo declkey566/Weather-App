@@ -16,7 +16,7 @@ namespace Weather_App
         public HomeScreen()
         {
             InitializeComponent();
-            pictureBox3.SendToBack();
+            pictureBox3.SendToBack(); //set parents so that the labels come out on top transparent
             cityLabel.Parent = pictureBox3;
             tempLabel.Parent = pictureBox3;
             condLabel.Parent = pictureBox3;
@@ -29,17 +29,17 @@ namespace Weather_App
         public void DisplayCurrent()
         {
             // the current information is in index 0, thus why all information is retreived from there
-            cityLabel.Text = Form1.days[0].location;
+            cityLabel.Text = Form1.days[0].location; //set all labels to their collected data values
             tempLabel.Text = Form1.days[0].currentTemp + "°C";
             minLabel.Text = "Low: " + Form1.days[0].tempLow + "°C";
             maxLabel.Text = "High: "+Form1.days[0].tempHigh + "°C";
             condLabel.Text = Form1.days[0].condition;
             dateLabel.Text = Form1.days[0].date;
-            double low = Convert.ToDouble(Form1.days[0].tempLow);
+            double low = Convert.ToDouble(Form1.days[0].tempLow); //transfer the low and high numbers to double values
             double high = Convert.ToDouble(Form1.days[0].tempHigh);
-            int weather = Convert.ToInt32(Form1.days[0].weather);
+            int weather = Convert.ToInt32(Form1.days[0].weather); //convert weather value to integer
             
-            if (low <0)
+            if (low <0) //set the minimum and maximum images based on temperature
             {
                 pictureBox1.Image = Weather_App.Properties.Resources.snow_small;
 
@@ -57,7 +57,7 @@ namespace Weather_App
             {
                 pictureBox2.Image = Weather_App.Properties.Resources.sun_small;
             }
-            if (weather <233 && weather >199)
+            if (weather <233 && weather >199) //set the large gif picture boxes to certain images based on weather values
             {
                 pictureBox3.Image = Weather_App.Properties.Resources.thunder;
             }
@@ -91,7 +91,7 @@ namespace Weather_App
         /// <param name="e"></param>
        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //send user to the weekly forecast screen
         {
             Form f = this.FindForm();
             f.Controls.Remove(this);
@@ -100,7 +100,7 @@ namespace Weather_App
             f.Controls.Add(ws);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //send the user to the wind condition screen
         {
             Form f = this.FindForm();
             f.Controls.Remove(this);

@@ -48,6 +48,8 @@ namespace Weather_App
                 // find the time element, and get the day attribute
                 reader.ReadToFollowing("time");
                 d.date = reader.GetAttribute("day");
+
+                //Find and get the condition name and weather number 
                 reader.ReadToFollowing("symbol");
                 d.condition = reader.GetAttribute("name");
                 d.weather = reader.GetAttribute("number");
@@ -83,16 +85,18 @@ namespace Weather_App
             reader.ReadToFollowing("temperature");
             days[0].currentTemp = reader.GetAttribute("value");
 
+            //find the speed element and get me the wind value and name attributes
             reader.ReadToFollowing("speed");
             days[0].windSpeed = reader.GetAttribute("value");
             days[0].windName = reader.GetAttribute("name");
 
+            //find and get the wind direction attribute
             reader.ReadToFollowing("direction");
             days[0].windDirection = reader.GetAttribute("name");
-
+            //find and get the cloud name attribute
             reader.ReadToFollowing("clouds");
             days[0].condition = reader.GetAttribute("name");
-
+            //find and get the weather number attribute
             reader.ReadToFollowing("weather");
             days[0].weather = reader.GetAttribute("number");
 

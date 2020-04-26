@@ -49,7 +49,7 @@ namespace Weather_App
         /// This method displays forecast information. The information in days at 
         /// index 1 is tomorrow's information, 2 is 2 days from now, etc. 
         /// </summary>
-        public void displayForecast()
+        public void displayForecast() // sets each label to the same value that was determined from the xml file
         {
             date1.Text = Form1.days[1].date;
             min1.Text = "Low: " + Form1.days[1].tempLow + "°c";
@@ -76,14 +76,14 @@ namespace Weather_App
             max5.Text = "High: " + Form1.days[5].tempHigh + "°c";
             cond5.Text = Form1.days[5].condition;
 
-            int weather1 = Convert.ToInt32(Form1.days[1].weather);
+            int weather1 = Convert.ToInt32(Form1.days[1].weather); //convery the weather numbers to integers
             int weather2 = Convert.ToInt32(Form1.days[2].weather);
             int weather3 = Convert.ToInt32(Form1.days[3].weather);
             int weather4 = Convert.ToInt32(Form1.days[4].weather);
             int weather5 = Convert.ToInt32(Form1.days[5].weather);
 
           
-            if (weather1 == 800)
+            if (weather1 == 800) //set picture box images based on the value of the weather number
             {
                 pictureBox1.Image = Weather_App.Properties.Resources.clear;
             }
@@ -153,21 +153,13 @@ namespace Weather_App
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void todayLabel_Click(object sender, EventArgs e)
-        {
-            Form f = this.FindForm();
-            f.Controls.Remove(this);
-
-            HomeScreen hs = new HomeScreen();
-            f.Controls.Add(hs);
-        }
 
         private void WeekScreen_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //sends user to the wind condition screen
         {
             Form f = this.FindForm();
             f.Controls.Remove(this);
@@ -176,7 +168,7 @@ namespace Weather_App
             f.Controls.Add(wh);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //sends user to the current day screen
         {
             Form f = this.FindForm();
             f.Controls.Remove(this);

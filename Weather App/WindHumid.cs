@@ -15,20 +15,19 @@ namespace Weather_App
         public WindHumid()
         {
             InitializeComponent();
-            windName.Text = Form1.days[0].windName;
-            DisplayWind();
+            DisplayWind(); //run the display wind code
         }
 
         public void DisplayWind()
         {
-            pictureBox1.Image = Weather_App.Properties.Resources.bar;
+            pictureBox1.Image = Weather_App.Properties.Resources.bar; //set images in picture boxes
             pictureBox2.Image = Weather_App.Properties.Resources.facewind;
-            windName.Text = Form1.days[0].windName;
+            windName.Text = Form1.days[0].windName; //set labels such as wind name, speed and direction
             windSpeed.Text = Form1.days[0].windSpeed + " m/s";
             windDir.Text = Form1.days[0].windDirection;
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //button to go to forecast screen
         {
             Form f = this.FindForm();
             f.Controls.Remove(this);
@@ -37,7 +36,7 @@ namespace Weather_App
             f.Controls.Add(ws);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //button to go back to the current day screen
         {
             Form f = this.FindForm();
             f.Controls.Remove(this);
